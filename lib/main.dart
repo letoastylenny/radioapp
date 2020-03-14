@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:radio_proto/songClass.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,13 +17,37 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   AudioPlayer _player;
+  Song song1 = new Song.constructor("Plastic Love - Mariya Takeuchi [ENG]", "Cover by Caitlin Myers", "https://en.wikipedia.org/wiki/Plastic_Love", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/plasticlove.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/plasticlove.png", "Pop");
+  Song song2 = new Song.constructor("A-Piano-Waltz", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/A-Piano-Waltz.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/PianoWaltz.jpg", "Classical");
+  Song song3 = new Song.constructor("Old King Cole", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Old%20King%20Cole.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/OldKingCole.png", "Country");
+  List<Song> _songList = new List<Song>();
+  int _songQueue = 0;
 
   @override
   void initState() {
     super.initState();
+    _songList.add(song1);
+    _songList.add(song2);
+    _songList.add(song3);
     _player = AudioPlayer();
-    _player.setUrl(
-        "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/plasticlove.mp3");  //mp3 url here
+    _player.setUrl(_songList[_songQueue].songMP3);  //mp3 url here
+  }
+
+  /*
+  This function advances to the next song in the song list.
+   */
+  void nextSong() {
+    setState(() {
+      if (_songQueue < _songList.length - 1){ //while there is a next song to queue
+        _player.stop();
+        _songQueue++;
+        _player.setUrl(_songList[_songQueue].songMP3);  //next mp3 url here
+      } else {  //if reached the end of the song list, loop back to the beginning
+        _player.stop();
+        _songQueue = 0;
+        _player.setUrl(_songList[_songQueue].songMP3);
+      }
+    });
   }
 
   @override
@@ -45,11 +70,11 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.network(
-                'https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/plasticlove.png',  //cover art for song
+                _songList[_songQueue].songArt,  //cover art for song
               ),
               SizedBox(height: 10),
-              Text("Plastic Love - Mariya Takeuchi [ENG]"), //song title
-              Text("Cover by Caitlin Myers"), //song artist
+              Text(_songList[_songQueue].songTitle), //song title
+              Text(_songList[_songQueue].songArtist), //song artist
               StreamBuilder<FullAudioPlaybackState>(
                 stream: _player.fullPlaybackStateStream,
                 builder: (context, snapshot) {
@@ -86,6 +111,13 @@ class _MyAppState extends State<MyApp> {
                             state == AudioPlaybackState.none
                             ? null
                             : _player.stop,
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.arrow_forward),
+                        iconSize: 64.0,
+                        onPressed: () {
+                          nextSong();
+                        }
                       ),
                     ],
                   );
