@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:radio_proto/login_page.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MaterialApp(
+    home : MyApp(),
+    routes:{
+      '/home':(BuildContext context) => MyApp(),
+      '/login':(BuildContext context) => LoginPage(),
+    }
+  ));
+}
+
 
 final ThemeData _themeData = new ThemeData(   //sets app color theme
   brightness: Brightness.dark,
@@ -31,6 +41,7 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,6 +49,11 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Radio App Demo'),
+          actions: <Widget>[
+            new IconButton(icon: new Icon(Icons.list), onPressed:(){
+              Navigator.pushNamed(context, '/login');
+            }),
+          ],
         ),
         body: Center(
           child: Column(
