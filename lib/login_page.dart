@@ -4,11 +4,13 @@
  * 写一个贼特么好看的登录页面
  */
 
-import 'dart:io';
-import 'dart:convert';
-
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:groovin_material_icons/groovin_material_icons.dart';
+//import 'package:groovin_material_icons/groovin_material_icons.dart';
+
+
+var localServerPage = "http://192.168.1.67/flutter_passtest/test1.php";
+
 
 class LoginPage extends StatefulWidget {
   @override
@@ -20,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
   String _email, _password;
   bool _isObscure = true;
   Color _eyeColor;
-  List _loginMethod = [
+ /* List _loginMethod = [
     {
       "title": "facebook",
       "icon": GroovinMaterialIcons.facebook,
@@ -34,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       "icon": GroovinMaterialIcons.twitter,
     },
   ];
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -127,8 +130,14 @@ class _LoginPageState extends State<LoginPage> {
 
    */
   
-  _post() async{    //using dio package process html post and response
-
+  _post(String email,String password) async{    //using dio package process html post and response
+    Dio dio = new Dio();
+    Response response;
+    String url = localServerPage + '?username=$email&password=$password\n';
+    response=await dio.get(url);
+    print(response.data.toString());
+    //print(url);
+    //print('$email\t$password\tthese are from local APP');
   }
   
   
@@ -148,8 +157,10 @@ class _LoginPageState extends State<LoginPage> {
               ///只有输入的内容符合要求通过才会到达此处
               _formKey.currentState.save();
               //TODO 执行登录方法
-              _post();
-              print('email:$_email , assword:$_password');
+              _post(_email,_password);
+              //print('email:$_email , password:$_password');
+              Navigator.pop<String>(context,"$_email");
+
             }
           },
           shape: StadiumBorder(side: BorderSide()),

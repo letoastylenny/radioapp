@@ -26,6 +26,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   AudioPlayer _player;
+  String value ="log_in";     //This variable value is used to determine user signed in or not
+                              //Will take the username returned from login page
 
   @override
   void initState() {
@@ -41,7 +43,6 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,10 +50,13 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Radio App Demo'),
+
           actions: <Widget>[
-            new IconButton(icon: new Icon(Icons.list), onPressed:(){
-              Navigator.pushNamed(context, '/login');
-            }),
+            new Text("$value"),
+            new IconButton(icon: new Icon(Icons.list), onPressed:() async{
+               value = await Navigator.pushNamed<dynamic>(context, '/login');
+              },
+            ),
           ],
         ),
         body: Center(
