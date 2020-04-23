@@ -41,6 +41,8 @@ class _MyAppState extends State<MyApp> {
   Song song8 = new Song.constructor("Shop", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Shop-Ocarina_of_Time.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Shop.png", "Tango");
   Song song9 = new Song.constructor("Midna-s_Lament", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Midna-s_Lament.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Midna-s_Lament.jpg", "Tango");
   Song song10 = new Song.constructor("Slow-Vibing", "By Ketsa", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/SlowVibing_by_Ketsa.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/SlowVibing.jpg", "Hiphop");
+  Song song11 = new Song.constructor("Jazz-Piano", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Jazz-Piano.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Jazz-Piano.png", "Jazz");
+  Song song12 = new Song.constructor("Ukelele", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Ukelele.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Ukelele.png", "Country");
   // TODO: Add more songs to song DB
 
   List<Song> _songDB = new List<Song>();
