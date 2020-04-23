@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:radio_proto/gui.dart';
 import 'package:radio_proto/songClass.dart';
 
-void main() => runApp(MyApp());
-
+//route table
+void main() {
+  runApp(MaterialApp(
+      initialRoute : '/channelselection',
+      routes:{
+        '/player':(BuildContext context) => MyApp(),
+        '/channelselection':(BuildContext context) => ChannelSelection(),
+      }
+  ));
+}
+//theme data
 final ThemeData _themeData = new ThemeData(   //sets app color theme
   brightness: Brightness.dark,
   primarySwatch: Colors.purple,
   accentColor: Colors.purpleAccent,
 );
-
+//channel selection page driver
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
@@ -60,7 +70,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: _themeData,
-      home: Scaffold(
+       home: Scaffold(
         appBar: AppBar(
           title: const Text('Radio App Demo'),
         ),
