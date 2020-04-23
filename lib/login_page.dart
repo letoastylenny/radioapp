@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
     ]);
     return Scaffold(
         appBar: AppBar(     //temp appbar with widget to skip login for testing
-          title: const Text('Login'),
+          title: const Text('Skip Login'),
           centerTitle: true,
           actions: <Widget>[
             IconButton(

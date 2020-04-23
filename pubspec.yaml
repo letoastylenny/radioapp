@@ -31,7 +31,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.7.3"
+  flutter_launcher_name: "^0.0.1"
 
+flutter_icons:
+    android: "launcher_icon"
+    ios: true
+    image_path: "assets/icon/radioicon.png"
+
+flutter_launcher_name:
+  name: "UNA Radio"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -86,6 +86,20 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_launcher_icons">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.7.4/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="flutter_launcher_name">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_name-0.0.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_test">
           <value>
             <list>
@@ -317,6 +331,13 @@
             </list>
           </value>
         </entry>
+        <entry key="yaml">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.0/lib" />
+            </list>
+          </value>
+        </entry>
       </option>
     </properties>
     <CLASSES>
@@ -331,6 +352,8 @@
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.3/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/cupertino_icons-0.1.3/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/dio-3.0.9/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.7.4/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_name-0.0.1/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/groovin_material_icons-1.1.6/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.4/lib" />
@@ -361,6 +384,7 @@
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/uuid-2.0.4/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.0.8/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/xml-3.5.0/lib" />
+      <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/packages/flutter/lib" />
       <root url="file://$PROJECT_DIR$/../../../Gamer Archives/Flutter/flutter/packages/flutter_test/lib" />
