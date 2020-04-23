@@ -1,8 +1,15 @@
+/*
+* Author: Ethan Sutherland
+* Description: This file contains all the code for the music player
+*              itself, including functions to build the song list.
+ */
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:radio_proto/songClass.dart';
 import 'package:radio_proto/login_page.dart';
 import 'package:radio_proto/gui.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -36,13 +43,15 @@ class _MyAppState extends State<MyApp> {
   Song song4 = new Song.constructor("Piano1", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Piano1.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Piano1.png", "Classical");
   Song song5 = new Song.constructor("Redwood", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Redwood.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/RedWood.png", "Jazz");
   Song song6 = new Song.constructor("Sweet Molly Malone", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Sweet%20Molly%20Malone.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/SweetMollyMalone.jpg", "Pop");
-  Song song7 = new Song.constructor("Title Theme - Wind Waker", "Nintendo", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Title%20Theme%20-%20Wind%20Waker.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/windwaker.jpg", "Classical");
-  Song song8 = new Song.constructor("Shop", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Shop-Ocarina_of_Time.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Shop.png", "Tango");
-  Song song9 = new Song.constructor("Midna-s_Lament", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Midna-s_Lament.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Midna-s_Lament.jpg", "Tango");
+  Song song7 = new Song.constructor("Title Theme - Wind Waker", "Nintendo", "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_The_Wind_Waker", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Title%20Theme%20-%20Wind%20Waker.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/windwaker.jpg", "Classical");
+  Song song8 = new Song.constructor("Shop", "WeeksExpedition", "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Shop-Ocarina_of_Time.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Shop.png", "Tango");
+  Song song9 = new Song.constructor("Midna-s_Lament", "WeeksExpedition", "https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Twilight_Princess", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Midna-s_Lament.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Midna-s_Lament.jpg", "Tango");
   Song song10 = new Song.constructor("Slow-Vibing", "By Ketsa", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/SlowVibing_by_Ketsa.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/SlowVibing.jpg", "Hiphop");
   Song song11 = new Song.constructor("Jazz-Piano", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Jazz-Piano.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Jazz-Piano.png", "Jazz");
   Song song12 = new Song.constructor("Ukelele", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Ukelele.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Ukelele.png", "Country");
   // TODO: Add more songs to song DB
+  // TODO: Store song data in Mongo or SQL DB and write code
+  //       to retrieve from it to get song list dynamically
 
   List<Song> _songDB = new List<Song>();
   List<Song> _songList = new List<Song>();
@@ -50,16 +59,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    String genre = widget.genre;  //gets genre from the value passed to MyApp
+    String genre = widget.genre;  //gets genre from the value passed to MyApp from MyChannel
     super.initState();
-    _songDB = [song1,song2,song3,song4,song5,song6,song7,song8,song9,song10];
+    _songDB = [song1,song2,song3,song4,song5,song6,song7,song8,song9,song10,song11,song12];
     for (var i = 0; i < _songDB.length; i++) {
       if (_songDB[i].songGenre == genre) {      //add songs with requested genre to songList
         _songList.add(_songDB[i]);
       }
     }
     _player = AudioPlayer();
-    _player.setUrl(_songList[_songQueue].songMP3);  //mp3 url here
+    _player.setUrl(_songList[_songQueue].songMP3);  //mp3 url is set here
   }
 
   /*
@@ -87,29 +96,49 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([     //forces portrait Orientation
+        DeviceOrientation.portraitUp,
+        DeviceOrientation.portraitDown,
+    ]);
     return MaterialApp(
       theme: _themeData,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Radio Player Demo'),
           centerTitle: true,
-          leading:
+          leading:            //leading places the icon before the title
             IconButton(
               icon: const Icon(Icons.navigate_before),
               iconSize: 32.0,
               tooltip: 'Go Back',
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.pop(context);     //return to Channel Selection page
               },
             ),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.open_in_browser),  //see information about current song
+              iconSize: 32.0,
+              tooltip: 'Learn More About Song',
+              onPressed: () {
+                if (_songList[_songQueue].songInfo != "infolink") {
+                  launch(_songList[_songQueue].songInfo, forceWebView: true);   //open link found in song object
+                } else {
+                  launch('https://google.com', forceWebView: true); //if link is "infolink", just go to google instead
+                }
+              }
+            ),
+          ],
         ),
         body: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                _songList[_songQueue].songArt,  //cover art for song
+              Expanded(       //expanded is used to fit the art to the screen
+                child: Image.network(
+                  _songList[_songQueue].songArt,  //cover art for song
+                ),
               ),
               SizedBox(height: 10),
               Text(_songList[_songQueue].songTitle), //song title
@@ -193,6 +222,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
+//following code is all from just_audio example
 class SeekBar extends StatefulWidget {
   final Duration duration;
   final Duration position;

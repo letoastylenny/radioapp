@@ -26,6 +26,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   groovin_material_icons: ^1.1.5
   dio: ^3.0.9
+  url_launcher: ^5.4.5
 
 dev_dependencies:
   flutter_test:

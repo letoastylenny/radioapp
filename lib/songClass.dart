@@ -1,4 +1,8 @@
-
+/*
+* Author: Ethan Sutherland
+* Description: Defines the Song class so that song data can be stored
+*              in song objects and manipulated as needed.
+ */
 class Song{
   //Fields
   String title, artist, infolink, mp3link, coverart, genre;

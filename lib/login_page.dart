@@ -8,6 +8,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 //import 'package:groovin_material_icons/groovin_material_icons.dart';
 import 'package:radio_proto/gui.dart';
+import 'package:flutter/services.dart';
 
 
 var localServerPage = "http://192.168.1.90/flutter_passtest/test1.php";
@@ -41,7 +42,27 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([     //forces portrait Orientation
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return Scaffold(
+        appBar: AppBar(     //temp appbar with widget to skip login for testing
+          title: const Text('Login'),
+          centerTitle: true,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.navigate_next),
+              iconSize: 32.0,
+              tooltip: 'Skip Login',
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (context) => ChannelSelection()    //skip to Channel Selection page
+                ), (route) => route == null);
+              },
+            ),
+          ],
+        ),
         body: Form(
             key: _formKey,
             child: ListView(
