@@ -25,6 +25,7 @@ class _MyAppState extends State<MyApp> {
   Song song6 = new Song.constructor("Midna-s_Lament", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Midna-s_Lament.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Midna-s_Lament.jpg", "Tango");
   Song song7 = new Song.constructor("Jazz-Piano", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Jazz-Piano.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Jazz-Piano.png", "Jazz");
   Song song8 = new Song.constructor("Ukelele", "SpencerFinch", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Ukelele.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Ukelele.png", "Tropical");
+  Song song9 = new Song.constructor("Slow-Vibing", "By Ketsa", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/SlowVibing_by_Ketsa.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/SlowVibing.jpg", "Tropical");
   
   List<Song> _songList = new List<Song>();
   int _songQueue = 0;
