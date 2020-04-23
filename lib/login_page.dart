@@ -6,8 +6,8 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:radio_proto/main.dart';
 //import 'package:groovin_material_icons/groovin_material_icons.dart';
+import 'package:radio_proto/gui.dart';
 
 
 var localServerPage = "http://192.168.1.90/flutter_passtest/test1.php";
@@ -149,11 +149,8 @@ class _LoginPageState extends State<LoginPage> {
     if (success == true)
     {
       print("if true");
-      Navigator.pushAndRemoveUntil(context,
-          new MaterialPageRoute(
-            builder: (BuildContext context) {
-              return new MyApp();
-            },
+      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+            builder: (context) => ChannelSelection()
           ), (route) => route == null);
     }else{
       Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => route == null);

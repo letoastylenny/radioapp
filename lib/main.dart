@@ -6,7 +6,7 @@ import 'package:radio_proto/gui.dart';
 
 void main() {
   runApp(MaterialApp(
-      initialRoute : '/channelselection',
+      initialRoute : '/login',
       routes:{
         '/player':(BuildContext context) => MyApp(),
         '/login':(BuildContext context) => LoginPage(),
@@ -29,7 +29,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String value ="log_in";
   AudioPlayer _player;
   Song song1 = new Song.constructor("Plastic Love - Mariya Takeuchi [ENG]", "Cover by Caitlin Myers", "https://en.wikipedia.org/wiki/Plastic_Love", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/plasticlove.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/plasticlove.png", "Pop");
   Song song2 = new Song.constructor("A-Piano-Waltz", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/A-Piano-Waltz.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/PianoWaltz.jpg", "Classical");
@@ -94,11 +93,6 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: const Text('Radio App Demo'),
           actions: <Widget>[
-            new Text("$value"),
-            new IconButton(icon: new Icon(Icons.list), onPressed:() async{
-              value = await Navigator.pushNamed<dynamic>(context, '/login');
-            },
-            ),
             IconButton(
               icon: const Icon(Icons.navigate_before),
               tooltip: 'Go Back',
