@@ -91,16 +91,17 @@ class _MyAppState extends State<MyApp> {
       theme: _themeData,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Radio App Demo'),
-          actions: <Widget>[
+          title: const Text('Radio Player Demo'),
+          centerTitle: true,
+          leading:
             IconButton(
               icon: const Icon(Icons.navigate_before),
+              iconSize: 32.0,
               tooltip: 'Go Back',
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-          ],
         ),
         body: Center(
           child: Column(
