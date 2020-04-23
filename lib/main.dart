@@ -4,7 +4,7 @@ import 'package:radio_proto/login_page.dart';
 
 void main() {
   runApp(MaterialApp(
-    home : MyApp(),
+    home : LoginPage(),
     routes:{
       '/home':(BuildContext context) => MyApp(),
       '/login':(BuildContext context) => LoginPage(),
@@ -53,10 +53,6 @@ class _MyAppState extends State<MyApp> {
 
           actions: <Widget>[
             new Text("$value"),
-            new IconButton(icon: new Icon(Icons.list), onPressed:() async{
-               value = await Navigator.pushNamed<dynamic>(context, '/login');
-              },
-            ),
           ],
         ),
         body: Center(

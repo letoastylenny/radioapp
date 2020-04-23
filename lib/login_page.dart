@@ -6,6 +6,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:radio_proto/main.dart';
 //import 'package:groovin_material_icons/groovin_material_icons.dart';
 
 
@@ -129,15 +130,34 @@ class _LoginPageState extends State<LoginPage> {
   }
 
    */
-  
+
+  bool success = false;
   _post(String email,String password) async{    //using dio package process html post and response
     Dio dio = new Dio();
     Response response;
     String url = localServerPage + '?username=$email&password=$password\n';
     response=await dio.get(url);
-    print(response.data.toString());
+    String message = response.data.toString();
+    print(message);
+    if (message == "match")
+      {
+        success = true;
+      }
     //print(url);
     //print('$email\t$password\tthese are from local APP');
+    print(success);
+    if (success == true)
+    {
+      print("in true");
+      Navigator.pushAndRemoveUntil(context,
+          new MaterialPageRoute(
+            builder: (BuildContext context) {
+              return new MyApp();
+            },
+          ), (route) => route == null);
+    }else{
+      Navigator.pushNamedAndRemoveUntil(context, "/login", (route) => route == null);
+    }
   }
   
   
@@ -159,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
               //TODO 执行登录方法
               _post(_email,_password);
               //print('email:$_email , password:$_password');
-              Navigator.pop<String>(context,"$_email");
+              //Navigator.pop<String>(context,"$_email");
 
             }
           },
