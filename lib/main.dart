@@ -20,6 +20,10 @@ class _MyAppState extends State<MyApp> {
   Song song1 = new Song.constructor("Plastic Love - Mariya Takeuchi [ENG]", "Cover by Caitlin Myers", "https://en.wikipedia.org/wiki/Plastic_Love", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/plasticlove.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/plasticlove.png", "Pop");
   Song song2 = new Song.constructor("A-Piano-Waltz", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/A-Piano-Waltz.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/PianoWaltz.jpg", "Classical");
   Song song3 = new Song.constructor("Old King Cole", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Old%20King%20Cole.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/OldKingCole.png", "Country");
+  Song song4 = new Song.constructor("Shop", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Shop-Ocarina_of_Time.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Shop.png", "Tango");
+  Song song5 = new Song.constructor("Redwood", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Redwood.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/RedWood.png", "Jazz");
+  Song song6 = new Song.constructor("Midna-s_Lament", "WeeksExpedition", "infolink", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/mp3s/Midna-s_Lament.mp3", "https://raw.githubusercontent.com/letoastylenny/radioapp/master/assets/art/Midna-s_Lament.jpg", "Tango");
+  
   List<Song> _songList = new List<Song>();
   int _songQueue = 0;
 
