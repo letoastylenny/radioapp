@@ -15,7 +15,17 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-### Info about Radio App
+## How to set up app in Android Studio
+
+The following section assumes you have already installed Flutter and set it up with Android Studio. If you have not done this yet, see the following link: https://flutter.dev/docs/get-started/install
+
+1. Download the zip of the entire project here and save the project to where you want to access it for development.
+2. Unzip the project and open up Android Studio.
+3. Make sure you are on the Android Studio welcome screen where you can "Start a new Android Studio project", "Open an existing Android Studio project", etc. Click "Open an existing Android Studio project" and navigate to where you unzipped the downloaded project. Click the project (should have an Android icon) to open it in Android Studio.
+4. Next, open up the terminal inside Studio and type "flutter pub get" to get all the dependencies for the app.
+5. Now you should be able to run the project from the Android Studio emulator or on your own device. See the flutter documentation on how to do this.
+
+## Info about Radio App
 
 This project uses a number of different flutter packages in order to operate. If you are someone that is going to continue working on the project, please see the following links to learn about the packages and how they operate:
 
@@ -40,7 +50,7 @@ What this application needs improvement on:
 - Improved song queueing method which allows music to start playing immediately after tapping next song
 - Controller for music player when not inside the app (notification bar player controller + lock screen player controller)
 
-#### Useful links for future developers
+## Useful links for future developers
 
 The following are some flutter packages we researched but were unable to have time to implement that future developers can use to fix some of the issues mentioned in the previous section:
 
