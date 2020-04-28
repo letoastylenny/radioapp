@@ -25,6 +25,15 @@ The following section assumes you have already installed Flutter and set it up w
 4. Next, open up the terminal inside Studio and type "flutter pub get" to get all the dependencies for the app.
 5. Now you should be able to run the project from the Android Studio emulator or on your own device. See the flutter documentation on how to do this.
 
+## Setting up Xcode and the iOS Simulator
+If you are using an Apple device (laptop or desktop) there is an additional step you need to take. You will need to make sure to install the Xcode app from the Apple store onto your device to use the iOS emulator to test the app. The link to download the Xcode from the Apple store is provided below:
+
+https://apps.apple.com/us/app/xcode/id497799835?mt=12
+
+On the Flutter website, they provide some documentation to set up flutter alongside setting up Xcode, the iOS simulator, and Android Studio for your Apple computer. The link to the page is provide below: 
+
+https://flutter.dev/docs/get-started/install/macos
+
 ## Info about Radio App
 
 This project uses a number of different flutter packages in order to operate. If you are someone that is going to continue working on the project, please see the following links to learn about the packages and how they operate:
