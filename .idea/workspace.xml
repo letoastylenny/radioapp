@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f56451e7-5026-486d-b4b4-3477e75ad7a3" name="Default Changelist" comment="Cleaned up a few things and added a new icon and name for the app!&#10;To see the new icon and name, after using pub get to get all the new&#10;dependencies, run the following two commands:&#10;flutter pub run flutter_launcher_icons:main&#10;flutter pub run flutter_launcher_name:main&#10;&#10;TODO: Add more songs to assets and work on Documentation">
+    <list default="true" id="f56451e7-5026-486d-b4b4-3477e75ad7a3" name="Default Changelist" comment="Added documentation throughout the code.">
       <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-hdpi/launcher_icon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-mdpi/launcher_icon.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/android/app/src/main/res/mipmap-xhdpi/launcher_icon.png" afterDir="false" />
@@ -15,8 +15,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/gui.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/gui.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/login_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587634691327</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added documentation throughout the code.">
+      <created>1588132675011</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1588132675011</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -172,6 +177,7 @@
     <MESSAGE value="Fixed Login Screen Issue&#10;&#10;TODO: Add more songs to assets and work on Documentation" />
     <MESSAGE value="Added button in music player appbar to view web link with song info&#10;&#10;TODO: Add more songs to assets and work on Documentation" />
     <MESSAGE value="Cleaned up a few things and added a new icon and name for the app!&#10;To see the new icon and name, after using pub get to get all the new&#10;dependencies, run the following two commands:&#10;flutter pub run flutter_launcher_icons:main&#10;flutter pub run flutter_launcher_name:main&#10;&#10;TODO: Add more songs to assets and work on Documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up a few things and added a new icon and name for the app!&#10;To see the new icon and name, after using pub get to get all the new&#10;dependencies, run the following two commands:&#10;flutter pub run flutter_launcher_icons:main&#10;flutter pub run flutter_launcher_name:main&#10;&#10;TODO: Add more songs to assets and work on Documentation" />
+    <MESSAGE value="Added documentation throughout the code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added documentation throughout the code." />
   </component>
 </project>

@@ -10,6 +10,9 @@ import 'package:flutter/material.dart';
 import 'package:radio_proto/main.dart';
 import 'package:flutter/services.dart';
 
+//----------------------------------------------
+//Gui Driver
+//----------------------------------------------
 class ChannelSelection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,10 @@ class ChannelSelection extends StatelessWidget {
     );
   }
 }
-//---------------------------------------------
+
+//-------------------------------------------------
+//Gui Layout
+//-------------------------------------------------
 class MyChannel extends StatelessWidget {
   MyChannel({Key key}) : super(key: key);
 
