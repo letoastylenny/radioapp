@@ -58,6 +58,7 @@ What this application needs improvement on:
 - Ability to get song data from a database rather than be hardcoded in
 - Improved song queueing method which allows music to start playing immediately after tapping next song
 - Controller for music player when not inside the app (notification bar player controller + lock screen player controller)
+- Music probably shouldn't stop playing when going back to channel selection screen
 
 ## Useful links for future developers
 
