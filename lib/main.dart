@@ -13,7 +13,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MaterialApp(
-      initialRoute : '/login',
+      initialRoute : '/login',      //app starts at login screen
       routes:{
         '/player':(BuildContext context) => MyApp(),
         '/login':(BuildContext context) => LoginPage(),
@@ -22,7 +22,7 @@ void main() {
   ));
 }
 
-final ThemeData _themeData = new ThemeData(   //sets app color theme
+final ThemeData _themeData = new ThemeData(   //sets Material app color theme
   brightness: Brightness.dark,
   primarySwatch: Colors.purple,
   accentColor: Colors.purpleAccent,
@@ -30,7 +30,7 @@ final ThemeData _themeData = new ThemeData(   //sets app color theme
 
 class MyApp extends StatefulWidget {
   final String genre;
-  MyApp({this.genre});
+  MyApp({this.genre});    //genre from gui.dart is passed to here
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -88,6 +88,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  //From just_audio example
   @override
   void dispose() {
     _player.dispose();
@@ -192,7 +193,7 @@ class _MyAppState extends State<MyApp> {
                 },
               ),
               Text("Track position"),
-              StreamBuilder<Duration>(
+              StreamBuilder<Duration>(            //following is from just_audio example
                 stream: _player.durationStream,
                 builder: (context, snapshot) {
                   final duration = snapshot.data ?? Duration.zero;

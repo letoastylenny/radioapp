@@ -1,3 +1,11 @@
+/*
+* Authors: Matthew Sirbaugh and Lacey Weeks
+* Description: This file contains the code for the channel
+*              selection GUI. When ever a channel widget is
+*              selected, the corresponding genre displayed on
+*              the widget is sent to the music player to determine
+*              what playlist is selected.
+ */
 import 'package:flutter/material.dart';
 import 'package:radio_proto/main.dart';
 import 'package:flutter/services.dart';
@@ -27,9 +35,9 @@ class MyChannel extends StatelessWidget {
     ]);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints viewportConstraints) {
-        return SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(
+        return SingleChildScrollView(       //SingleChildScrollView is to help in assist fitting widgets to screen
+          child: ConstrainedBox(            //in conjunction with ConstrainedBox. See Flutter documentation on these
+            constraints: BoxConstraints(    //classes for more information
               minWidth: viewportConstraints.maxWidth,
               minHeight: viewportConstraints.maxHeight,
             ),
@@ -39,10 +47,10 @@ class MyChannel extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 const SizedBox(height: 30),
-                FlatButton(
+                FlatButton(                   //Each of the following buttons are the channel widgets
                   onPressed: () => {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => MyApp(
+                    Navigator.push(context, MaterialPageRoute(    //Nagivator.push will send the following data
+                        builder: (context) => MyApp(              //to MyApp in the player page.
                           genre: "Jazz",
                         )
                     )),
@@ -54,7 +62,7 @@ class MyChannel extends StatelessWidget {
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: <Color>[
-                          Color(0xFF673AB7),
+                          Color(0xFF673AB7),      //These are the RGB values for UNA Purple
                           Color(0xFF673AB7),
                           Color(0xFF673AB7),
                         ],

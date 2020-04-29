@@ -11,7 +11,7 @@ import 'package:radio_proto/gui.dart';
 import 'package:flutter/services.dart';
 
 
-var localServerPage = "http://192.168.1.90/flutter_passtest/test1.php";
+var localServerPage = "http://192.168.1.90/flutter_passtest/test1.php";   //your ipaddress goes here
 
 
 class LoginPage extends StatefulWidget {
